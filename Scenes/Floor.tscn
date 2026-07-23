@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5s8tnpfcy2ki"]
+
+[ext_resource type="TileSet" uid="uid://dpfeguhupry13" path="res://TileMap/BaseLevel.tres" id="1_aa50f"]
+[ext_resource type="Script" uid="uid://cvqpsq6snxk3d" path="res://TileMap/TileMapScripts/LevelTileMap.cs" id="2_au6g3"]
+
+[node name="Floor" type="TileMapLayer"]
+z_index = -3
+tile_set = ExtResource("1_aa50f")
+script = ExtResource("2_au6g3")

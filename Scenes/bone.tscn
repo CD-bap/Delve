@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgf4ffnrdevkc"]
+
+[ext_resource type="Script" uid="uid://bf2lym1qecdl7" path="res://Scripts/BoneProjectile.cs" id="1_8jt6p"]
+[ext_resource type="Texture2D" uid="uid://bksg8k8x0whrl" path="res://Enemy/Skeleton/bone.png" id="1_fmouj"]
+[ext_resource type="PackedScene" uid="uid://6p5x1hf245ul" path="res://Scenes/hurt_box.tscn" id="3_2e6wv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8jt6p"]
+radius = 1.0
+height = 11.9992
+
+[sub_resource type="Animation" id="Animation_lh5sp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_2e6wv"]
+resource_name = "shoot"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qpmom"]
+_data = {
+&"RESET": SubResource("Animation_lh5sp"),
+&"shoot": SubResource("Animation_2e6wv")
+}
+
+[node name="bone" type="RigidBody2D"]
+collision_layer = 18
+mass = 0.001
+gravity_scale = 0.0
+script = ExtResource("1_8jt6p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, 0)
+texture = ExtResource("1_fmouj")
+hframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.55943
+shape = SubResource("CapsuleShape2D_8jt6p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qpmom")
+}
+
+[node name="HurtBox" parent="." instance=ExtResource("3_2e6wv")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+rotation = 1.55943
+shape = SubResource("CapsuleShape2D_8jt6p")
