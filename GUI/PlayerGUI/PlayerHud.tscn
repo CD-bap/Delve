@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1hu46p6lai4l"]
+
+[ext_resource type="Script" uid="uid://ccksoypyhqeuc" path="res://GUI/PlayerGUI/PlayerHud.cs" id="1_5buad"]
+[ext_resource type="Texture2D" uid="uid://ckx4fb1yee28n" path="res://GUI/PlayerGUI/gui-health.png" id="1_lmbrq"]
+[ext_resource type="PackedScene" uid="uid://di38mdro4q48e" path="res://GUI/PlayerGUI/heartGui.tscn" id="2_5buad"]
+
+[node name="PlayerHud" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_5buad")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(35, 13)
+texture = ExtResource("1_lmbrq")
+region_enabled = true
+region_rect = Rect2(29, 0, 34, 9)
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Control"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 9.0
+offset_right = 128.0
+offset_bottom = 32.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 2
+
+[node name="heart" parent="Control/HFlowContainer" instance=ExtResource("2_5buad")]
+layout_mode = 2
+
+[node name="heart2" parent="Control/HFlowContainer" instance=ExtResource("2_5buad")]
+layout_mode = 2
+
+[node name="heart3" parent="Control/HFlowContainer" instance=ExtResource("2_5buad")]
+layout_mode = 2
+
+[node name="heart4" parent="Control/HFlowContainer" instance=ExtResource("2_5buad")]
+layout_mode = 2
+
+[node name="heart5" parent="Control/HFlowContainer" instance=ExtResource("2_5buad")]
+layout_mode = 2
+
+[node name="heart6" parent="Control/HFlowContainer" instance=ExtResource("2_5buad")]
+layout_mode = 2
+
+[node name="heart7" parent="Control/HFlowContainer" instance=ExtResource("2_5buad")]
+layout_mode = 2
+
+[node name="heart8" parent="Control/HFlowContainer" instance=ExtResource("2_5buad")]
+layout_mode = 2
+
+[node name="heart9" parent="Control/HFlowContainer" instance=ExtResource("2_5buad")]
+layout_mode = 2
+
+[node name="heart10" parent="Control/HFlowContainer" instance=ExtResource("2_5buad")]
+layout_mode = 2
+
+[node name="heart11" parent="Control/HFlowContainer" instance=ExtResource("2_5buad")]
+layout_mode = 2
+
+[node name="heart12" parent="Control/HFlowContainer" instance=ExtResource("2_5buad")]
+layout_mode = 2
